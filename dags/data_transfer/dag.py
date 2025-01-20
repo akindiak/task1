@@ -26,7 +26,7 @@ TRANSFORMED_DATA_PATH = (
         DATA_FOLDER / "transfer_data" / "{{ ds }}" / "transformed_orders_{{ ts_nodash }}.tsv"
 ).as_posix()
 
-BASE_CURRENCY = "USD"
+BASE_CURRENCY = "EUR"
 
 
 with DAG(
