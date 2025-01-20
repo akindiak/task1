@@ -21,5 +21,7 @@ def fetch_orders_data_from_postgres(conn_id: str, save_to: str, load_from: datet
     remove_files(save_to)
     create_parent_directories(path=save_to)
 
+    write_header = True
     for df in pg_hook.get_pandas_df_by_chunks(sql, chunksize=5000):
-        df.to_csv(save_to, index=False, sep="\t", mode="w")
+        df.to_csv(save_to, index=False, sep="\t", mode="a", header=write_header)
+        write_header = False
